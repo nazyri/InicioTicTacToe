@@ -7,8 +7,47 @@
     <link rel="stylesheet" href="/Styles/Compu.css">
 </head>
 <body>
-    
-    
+    <h1>Tic Tac Toe</h1>
+
+    <nav>
+        <div class="conteiner-score">
+            <span>X</span>
+            <span>O</span>
+            <div id="marcador">
+                <span id="x">0</span>
+                <span id="o">0</span>
+            </div>
+            <button id="borrar">Borrar</button>
+        </div>
+    </nav>
+
+    <div class="tablero" id="tablero">
+        <div>
+            <div class="casilla"></div>
+            <div class="casilla"></div>
+            <div class="casilla"></div>
+        </div>
+        
+        <div>
+            <div class="casilla"></div>
+            <div class="casilla"></div>
+            <div class="casilla"></div>
+        </div>
+
+        <div>
+            <div class="casilla"></div>
+            <div class="casilla"></div>
+            <div class="casilla"></div>
+        </div>
+    </div>
+
+    <div id="resultado"></div>
+    <button id="botonReiniciar">Reiniciar</button>
+    <div>Turno Actual</div>
+    <div id="turno">O</div>
+
+    <input type="checkbox" name="computadora" id="computer"><label for="computadora">Computadora</label>
+
 <script src="/Javascrip/Compu.js"></script>
 </body>
 </html>

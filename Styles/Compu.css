@@ -1,0 +1,29 @@
+body{
+    width: 100vw;
+    height: 100vw;
+    background-color: white;
+    color: black;
+    font-family: 'Courier New', Courier, monospace;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: -400px;
+}
+
+.casilla{
+    width: 276px;
+    text-align: center;
+}
+
+.tablero .casilla{
+    width: 90px;
+    height: 90px;
+    font-size: 3rem;
+    display: grid;
+    padding: 10px;
+    place-items: center;
+    border: 1px solid purple;
+    float: left;
+  }
