@@ -31,17 +31,41 @@ for (let casilla of casillas) {
             return
         }
 
+        // Verificar si hay un empate
+            if (empate()) {
+                alert("¡Es un empate!");
+            return;
+            }
 
         if(computadora.checked && turno.innerHTML != primerTurno) {
             ganoComputadora = movidaDeComputadora()
             if(ganoComputadora) {
                 alert("Lo siento perdiste!")
-            }            
+                if (casilla.innerHTML=="O") {
+                    let xJugador = parseInt(x.innerHTML);
+                    x.innerHTML = xJugador + 1;        
+                }else{
+                    let oJugador = parseInt(o.innerHTML);
+                    o.innerHTML = oJugador + 1;
+                }
+    
+                return
+            }  
+            
+        // Verificar si hay un empate después del movimiento de la computadora
+                if (empate()) {
+                    alert("¡Es un empate!");
+                }
         }
     })
 }
 
 //Funciones
+function quitarContador() {
+    
+    x.innerHTML = 0
+    o.innerHTML = 0
+}
 
 function limpiarTodo() {
     limpiar(casillas)
@@ -100,6 +124,16 @@ function hayGanador() {
     return false
 }
 
+// Nueva función para verificar si el tablero está lleno
+function empate() {
+    for (let casilla of casillas) {
+        if (casilla.innerHTML == "") {
+            return false;
+        }
+    }
+    return true;
+}
+
 function movida(elemento, valor) {
     if (elemento.innerHTML==null||elemento.innerHTML=="") {
         
@@ -110,9 +144,10 @@ function movida(elemento, valor) {
     if(hayGanador()){
         return true
     }
-
+    
     return false
-} }
+} 
+}
 
 function movidaDeComputadora() {
     let vacias = Array.from(casillas).filter(casilla=>casilla.innerHTML == "")

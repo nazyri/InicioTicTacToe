@@ -24,6 +24,6 @@ body{
     display: grid;
     padding: 10px;
     place-items: center;
-    border: 1px solid purple;
+    border: 2px solid purple;
     float: left;
   }
