@@ -4,8 +4,22 @@ const casillas = document.getElementsByClassName("casilla")
 const turno = document.getElementById("turno")
 const computadora = document.getElementById("computer")
 const borrar = document.getElementById("borrar")
+const guardar1 = document.getElementById("guardar1")
+
+const cambiar1 = document.getElementById("cambiar1")
+const cambiar2 = document.getElementById("cambiar2")
+
+let jugadores = JSON.parse(localStorage.getItem("jugadores")) || [];
 
 limpiarTodo()
+
+cambiar1.addEventListener('click', () => editarEvento(index));
+
+// guardar1.addEventListener("click", function () {
+//     alert("llega")
+//     agregarNombre()
+// })
+
 
 borrar.addEventListener("click", function() {
     quitarContador() 
@@ -22,10 +36,12 @@ for (let casilla of casillas) {
             alert("Felicidades ganaste!")
             if (casilla.innerHTML=="X") {
                 let xJugador = parseInt(x.innerHTML);
-                x.innerHTML = xJugador + 1;        
+                let sumaX=x.innerHTML = xJugador + 1;
+                localStorage.setItem("marcadorX",sumaX)
             }else{
                 let oJugador = parseInt(o.innerHTML);
-                o.innerHTML = oJugador + 1;
+                let sumaX=o.innerHTML = oJugador + 1;
+                localStorage.setItem("marcadorO",sumaX)
             }
 
             return
@@ -43,7 +59,8 @@ for (let casilla of casillas) {
                 alert("Lo siento perdiste!")
                 if (casilla.innerHTML=="O") {
                     let xJugador = parseInt(x.innerHTML);
-                    x.innerHTML = xJugador + 1;        
+                    x.innerHTML = xJugador + 1;    
+                           
                 }else{
                     let oJugador = parseInt(o.innerHTML);
                     o.innerHTML = oJugador + 1;
@@ -157,3 +174,32 @@ function movidaDeComputadora() {
 
     return movida(casillaElegida, turno.innerHTML)
 }
+
+function agregarNombre() {
+    
+    let jugador1 = document.getElementById("jugador1")
+    let jugador2 = document.getElementById("jugador2")
+    console.log(jugador1.value+" jugador1")
+    console.log(jugador2.value+" jugador2")
+    if (jugador1.value==null) return
+    if (jugador2.value==null) return
+    if (jugador1.value === '' || jugador2.value === '') {
+        alert('Por favor ingrese un nombre de los jugadores');
+        return;
+    }
+    let player = { 
+        player1: jugador1.value,
+        player2: jugador2.value
+        };
+
+    jugadores.push(player);
+    localStorage.setItem("jugadores", JSON.stringify(jugadores));
+    document.getElementById("jugador1").value = ''; // Limpiar input
+    document.getElementById("jugador2").value = ''; // Limpiar input
+    document.getElementById("player1").innerHTML=player.player1
+    document.getElementById("player2").innerHTML=player.player2
+    guardar1.style.display="none";
+
+}
+
+    // (●'◡'●)

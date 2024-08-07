@@ -9,11 +9,16 @@
 <body>
     <h1>Tic Tac Toe</h1>
 
+    <label for="nomdres" id="player1">jugador 1<input id="jugador1" type="nombre" placeholder="Nombre del jugador"></label>
+    <label for="nombres" id="player2">jugador 2<input id="jugador2" type="nombre" placeholder="Nombre del jugador"></label>
+    <button id="guardar1" onclick="agregarNombre()">guardar</button>
+    
+
     <nav>
         <div class="conteiner-score">
             <span>X</span>
             <span>O</span>
-            <div id="marcador">
+            <div class="marcador">
                 <span id="x">0</span>
                 <span id="o">0</span>
             </div>
@@ -47,6 +52,7 @@
     <div id="turno">O</div>
 
     <input type="checkbox" name="computadora" id="computer"><label for="computadora">Computadora</label>
+<!-- crear un input para que jueguen 1 vs 1 y agregen su nombre los jugadores y que se puedan cambiar los nombres -->
 
 <script src="/Javascrip/Compu.js"></script>
 </body>
