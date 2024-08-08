@@ -26,4 +26,36 @@ body{
     place-items: center;
     border: 2px solid purple;
     float: left;
-  }
+}
+
+#player2{
+    margin-left: 550px;
+}
+
+#guardar{
+    margin-top: 30px;
+}
+
+.conteiner-score{
+    font-family: fantasy;
+
+}
+
+.marcador{
+
+    background-color: palevioletred;
+    color: white;
+}
+
+.line{
+    background-color: black;
+    height: 3px;
+    width: 0;
+    position: absolute;
+    background-color: #911d91;
+    transition: width 1s ease-in-out;
+}
+
+.aiuda{
+background-clip: border-box;
+}

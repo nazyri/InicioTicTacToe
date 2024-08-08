@@ -4,21 +4,15 @@ const casillas = document.getElementsByClassName("casilla")
 const turno = document.getElementById("turno")
 const computadora = document.getElementById("computer")
 const borrar = document.getElementById("borrar")
-const guardar1 = document.getElementById("guardar1")
-
-const cambiar1 = document.getElementById("cambiar1")
-const cambiar2 = document.getElementById("cambiar2")
+const guardar = document.getElementById("guardar")
 
 let jugadores = JSON.parse(localStorage.getItem("jugadores")) || [];
 
 limpiarTodo()
 
-cambiar1.addEventListener('click', () => editarEvento(index));
-
-// guardar1.addEventListener("click", function () {
-//     alert("llega")
-//     agregarNombre()
-// })
+guardar.addEventListener("click", function () {
+    agregarNombre()
+})
 
 
 borrar.addEventListener("click", function() {
@@ -134,7 +128,7 @@ function hayGanador() {
         let c = casillas[posiciones[2]].innerHTML
 
         if(sonIguales(a, b, c)) {
-
+            document.querySelector(".line").style.width = "20%"; 
             return true
         }
     }
@@ -152,7 +146,7 @@ function empate() {
 }
 
 function movida(elemento, valor) {
-    if (elemento.innerHTML==null||elemento.innerHTML=="") {
+     if (elemento.innerHTML==null||elemento.innerHTML=="") {
         
     
     elemento.innerHTML = valor
