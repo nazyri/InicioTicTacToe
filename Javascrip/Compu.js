@@ -25,6 +25,7 @@ botonReiniciar.addEventListener("click", function() {
 
 for (let casilla of casillas) {
     casilla.addEventListener("click", function(e) {
+        if (juegoTerminado) return;
         ganoJugador = movida(e.target, turno.innerHTML)
         if(ganoJugador) {
             alert("Felicidades ganaste!")
@@ -37,13 +38,14 @@ for (let casilla of casillas) {
                 let sumaX=o.innerHTML = oJugador + 1;
                 localStorage.setItem("marcadorO",sumaX)
             }
-
+            juegoTerminado = true;
             return
         }
 
         // Verificar si hay un empate
             if (empate()) {
                 alert("¡Es un empate!");
+                juegoTerminado = true;
             return;
             }
 
@@ -59,13 +61,14 @@ for (let casilla of casillas) {
                     let oJugador = parseInt(o.innerHTML);
                     o.innerHTML = oJugador + 1;
                 }
-    
+                juegoTerminado = true;
                 return
             }  
             
         // Verificar si hay un empate después del movimiento de la computadora
                 if (empate()) {
                     alert("¡Es un empate!");
+                    juegoTerminado = true;
                 }
         }
     })
@@ -81,6 +84,7 @@ function quitarContador() {
 function limpiarTodo() {
     limpiar(casillas)
     turno.innerHTML = primerTurno
+    juegoTerminado = false;
 }
 
 function limpiar(elementos) {
@@ -192,8 +196,28 @@ function agregarNombre() {
     document.getElementById("jugador2").value = ''; // Limpiar input
     document.getElementById("player1").innerHTML=player.player1
     document.getElementById("player2").innerHTML=player.player2
-    guardar1.style.display="none";
+    guardar.style.display="none";
 
 }
 
+// Nueva función para refrescar el juego
+function refrescarJuego() {
+    limpiarTodo(); // Limpiar el tablero
+    juegoTerminado = false; // Reiniciar el estado del juego
+}
+
+// Lógica de la computadora
+function juegoPc() {
+    if (!juegoTerminado) {
+        setTimeout(() => {
+            let arregloConvertido = Array.from(casillas);
+            let arregloVacios = arregloConvertido.filter(celda => celda.innerHTML === "");
+            if (arregloVacios.length === 0) return; 
+            let numAleatorio = Math.floor(Math.random() * arregloVacios.length);
+            let segundoJugador = turno.innerHTML === "X" ? "O" : "X";
+            movida(arregloVacios[numAleatorio], segundoJugador);
+            cambiarJugador(); // Cambiar el turno después de la jugada
+        }, 500);
+    }
+}
     // (●'◡'●)

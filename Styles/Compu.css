@@ -1,4 +1,5 @@
 body{
+    background-image: url(/imagen/pattern-7451714_1280.jpg);
     width: 100vw;
     height: 100vw;
     background-color: white;
@@ -15,6 +16,23 @@ body{
 .casilla{
     width: 276px;
     text-align: center;
+    margin: auto;
+    border-radius: 4px;
+    font-family: 'calibri';
+    color: white;
+    box-shadow: 7px 13px 37px #000;
+}
+
+.contenedor{
+    border: 4px solid white;
+    box-shadow: inset 0 0 15px rgb(255, 255, 255), 0 0 15px rgb(255, 255, 255);
+}
+
+h1{
+    font-size: xx-large;
+    margin-top: 100px;
+    text-shadow: none;
+    color:  pink;
 }
 
 .tablero .casilla{
@@ -24,12 +42,19 @@ body{
     display: grid;
     padding: 10px;
     place-items: center;
-    border: 2px solid purple;
+    border: 2px solid white;
     float: left;
+    color: rgb(206, 232, 232);
+}
+
+#player1{
+    margin-left: 80px;
+    color: white;
 }
 
 #player2{
-    margin-left: 550px;
+    margin-left: 300px;
+    color: white;
 }
 
 #guardar{
@@ -38,24 +63,30 @@ body{
 
 .conteiner-score{
     font-family: fantasy;
-
+    background-color: rgb(186, 226, 253);
 }
 
 .marcador{
-
+    font-family: fantasy;
     background-color: palevioletred;
     color: white;
 }
 
-.line{
-    background-color: black;
-    height: 3px;
-    width: 0;
-    position: absolute;
-    background-color: #911d91;
-    transition: width 1s ease-in-out;
+.turno{
+    color: white;
 }
 
-.aiuda{
-background-clip: border-box;
+.computer{
+    color: white;
 }
+
+.checkbox{
+    display: inline-block;
+    width: 55px;
+    height: 30px;
+    border-radius: 100px;
+    position: relative;
+    cursor: pointer;
+}
+
+
